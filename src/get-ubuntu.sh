@@ -14,7 +14,43 @@ WAIT=""
 URL_BASE="http://releases.ubuntu.com"
 
 function help () {
-	echo "help info..."
+    local NORM="\e[0m"
+    local BOLD="\e[1m"
+    local ULIN="\e[4m"
+
+	echo -e "${BOLD}NAME${NORM}"
+    echo -e "    $NAME - download ubuntu iso.\n"
+
+    echo -e "${BOLD}SYNOPSIS${NORM}"
+    echo -e "    $NAME [${ULIN}options${NORM}]\n"
+
+    echo -e "${BOLD}DESCRIPTION${NORM}"
+    echo -e "    This tool ping Canonical's servers to get Ubuntu ISO as soon as possible.\n"
+
+    echo -e "${BOLD}OPTIONS${NORM}"
+    echo -e "    ${BOLD}-h${NORM}"
+    echo -e "        Showes this user manual.\n"
+
+    echo -e "    ${BOLD}-v${NORM}"
+    echo -e "        Showes info about versio and author.\n"
+
+    echo -e "    ${BOLD}-a${NORM} ${ULIN}ARCH${NORM}"
+    echo -e "        Specifies the desiderated arch (32 or 64 bits) of the iso to download."
+    echo -e "        Valid values for ${ULIN}ARCH${NORM} are '32' or '64'.\n"
+
+    echo -e "    ${BOLD}-t${NORM} ${ULIN}TYPE${NORM}"
+    echo -e "        Specifies the type of the distro desiderated (server or desktop)."
+    echo -e "        Valid values for ${ULIN}TYPE${NORM} are 'desktop' (or 'd') or 'server' (or 's').\n"
+
+    echo -e "    ${BOLD}-r${NORM} ${ULIN}RELEASE_CODE${NORM}"
+    echo -e "        Specifies the version of the desiderated ubuntu iso."
+    echo -e "        ${ULIN}RELEASE_CODE${NORM} must be a value like 14.04, 14.10, 12.10, ...\n"
+
+    echo -e "    ${BOLD}-w${NORM} ${ULIN}WAIT_TIME${NORM}"
+    echo -e "        Specifies the amount of time to wait between two download attempts."
+    echo -e "        ${ULIN}WAIT_TIME${NORM} must have this format ${ULIN}NUMBER${NORM}[${ULIN}SUFFIX${NORM}]."
+    echo -e "        ${ULIN}SUFFIX${NORM} should be 's', 'm', 'h', 'd' to specify seconds, minutes, hours"
+    echo -e "        or days. If there is not ${ULIN}SUFFIX${NORM}, it uses ${ULIN}NUMBER${NORM} as seconds.\n"
 	exit 0
 }
 
